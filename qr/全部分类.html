@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://e-office.nuist.edu.cn/taskcenter/wechat/appall -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>全部分类</title>
+	
+	<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cache-control" content="max-age=0">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="expires" content="Tue, 01 Jan 1970 1:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+	
+
+	<link rel="stylesheet" href="./全部分类_files/font-awesome.min.css">
+	<link rel="stylesheet" href="./全部分类_files/jquery.gritter.css">
+	<link rel="stylesheet" href="./全部分类_files/jstarbox.css">
+	<link rel="stylesheet" href="./全部分类_files/rateit.css">
+	
+	
+	
+		<link rel="stylesheet" href="./全部分类_files/wechat.css">
+	
+	<!-- basic scripts -->
+	<script src="./全部分类_files/json2.js.download"></script>
+	<script src="./全部分类_files/jquery.min.js.download"></script>
+	<script src="./全部分类_files/jquery.timestamp.js.download"></script>
+	<script src="./全部分类_files/layer.js.download"></script><link rel="stylesheet" href="./全部分类_files/layer.css" id="layuicss-skinlayercss">
+	<script src="./全部分类_files/jquery.noty.packaged.min.js.download"></script>
+	<script src="./全部分类_files/jquery.fly.js.download"></script>
+	<script src="./全部分类_files/jquery-migrate-1.2.0.min.js.download"></script>
+	<script src="./全部分类_files/jquery.placeholder.min.js.download"></script>
+	<script src="./全部分类_files/jquery.cookie.js.download"></script>
+	<script src="./全部分类_files/bootstrap.min.js.download"></script>
+	<script src="./全部分类_files/bootbox.min.js.download"></script>
+	
+	<script src="./全部分类_files/jquery.gritter.min.js.download"></script>
+		
+	<script src="./全部分类_files/underscore-min.js.download"></script>
+	<script src="./全部分类_files/backbone-min.js.download"></script>
+	<script src="./全部分类_files/backbone.fetch-cache.min.js.download"></script>
+	<script src="./全部分类_files/jstarbox.js.download"></script>
+
+	<script src="./全部分类_files/jquery.rateit.js.download"></script>
+	<script src="./全部分类_files/jquery.scrollLoading.min.js.download"></script>
+	<script src="./全部分类_files/TouchSlide.1.1.js.download"></script>
+	<script src="./全部分类_files/jquery.tinycarousel.js.download"></script>
+	<script src="./全部分类_files/jquery.paging.js.download"></script>
+	<script src="./全部分类_files/jquery.easy-paging.js.download"></script>
+	<script src="./全部分类_files/jquery.easy-pie-chart.min.js.download"></script>
+	<script src="./全部分类_files/jquery.SuperSlide.2.1.js.download"></script>
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lte IE 8]>
+	<script src="/taskcenter/resources/common/js/html5shiv.js?_v=20210415-212848"></script>
+	<script src="/taskcenter/resources/common/js/respond.min.js?_v=20210415-212848"></script>
+	<![endif]-->
+	<script src="./全部分类_files/jquery-textoverflow.js.download"></script>
+
+	<script src="./全部分类_files/public.js.download"></script>
+	
+	
+	<script>
+		Global = {
+			contentpath : "/taskcenter/",
+			bodyHeight : $('body').height(),
+			cacheTime : 6000,
+			debugModal: false,
+			CSRFToken: "fd37ffe7-5d72-4c9c-b729-1473b7d0c19d",
+			resourceUrl: "/taskcenter/resources/nuist/beta2",
+			resSys: "/taskcenter/resources/common",
+			userId:"3f39d50e-edba-11ea-9d43-005056ac46c4",
+			loginName: "ATANEPESOV DOVRAN",
+			membership: "",
+			deviceName: "",
+			tag:"",
+			pathName:"appall",
+			supportFrame: "include",
+			loginStatus: "",
+			imageUrl: "http://e-office.nuist.edu.cn/infoplus/file/enterprise/f4174bcb-96a4-465c-9c2a-704e1883f559/icon",
+			contentSelector : ".contents",
+			templateSelector : "#contentsTemplate",
+			scrollTop : true,
+			titleMap : {},
+			hash : "",
+			dataName : "apps",
+			isLoading : true,
+			loginUrl : "http://202.195.235.24:6699/banner.jpg",
+			version : "20210415-212848",
+			isDebug : "false",
+			locale: "en",
+			positionTag: "",
+			isTeacher: "false",
+			homeAccessTimes : "",
+			hrbeuCmsUrl: "",
+			locationHost : "#",
+			order:"auto"
+		};
+
+		Global._parameter = {};
+		Global.apps = [];
+		Global.todos = [];
+		Global.doings = [];
+		Global.dones = [];
+		Global.unrates = [];
+		Global.completeds = [];
+		Global.ccs = [];
+		Global.merges = [];
+		Global.selectorMap = {".btn-favorite" : "click",".btn-favorite-remove" : "click" 
+							, ".tag-select" : "change" , ".search-input":"keydown" , ".btn-search-input":"click" };
+		Global.hashMap = { "apps" : "contentsTemplate" , "audit" : "contentsAuditTemplate" ,"todo" : "contentsTodoTemplate"
+							 ,"doing" : "contentsDoingTemplate" ,"done" : "contentsDoneTemplate" , "unrate" : "contentsUnrateTemplate"
+						, "todohistory" : "contentsTodoHistoryTemplate" , "audithistory" : "contentsAuditHistoryTemplate"};
+		Global.apiMap = {"api/me/apps":"apps" , "api/me/tasks/todo":"todos","api/me/processes/doing?limit=%s&start=%s&keyword=%s":"doings" 
+						, "api/me/processes/done?limit=%s&start=%s&keyword=%s":"dones","api/me/processes/completed?limit=%s&start=%s&keyword=%s":"completeds" ,
+						 "api/process/%s":"processes" , "api/me/processes/merge" : "merges" , "api/me/processes/todo" : "mergeTodos" , 
+						 "api/me/processes/unrated" :"unrates" , "api/me/processes/cc?limit=%s&start=%s&keyword=%s":"ccs" };
+		Global.sepMap = {  "audit" : "true" , "audithistory" : "false" , "completed" : "true" , "merge" : "false" , "approval" : "true" };
+		Global.defaultTags = {"ALL":"全部","COLLECT":"收藏"};
+		Global.query = { limit : 10 , start : 0 ,pageSize : 10 , data : {}};
+		Global.rapidHandle = { checked : {} , names : {} , actions : {}};
+		Global.rapidCc={chooseAll:false,checked:{}};
+		Global.app = {palette:"green"};
+		Global.dataLength = {};
+		Global.rate = {};
+		if(Global.deviceName != 'mobile'){
+			Global.scrollTop = false;
+		}
+		$.cookie.json=true;
+		
+	</script>
+	<script src="./全部分类_files/flow.js.download"></script>
+	
+	
+</head>
+<body class="no-skin">
+	<div class="sysu-contents">
+
+<div class="container">
+	<div class="hd">
+		<div class="weui_cell base_cell">
+	        <div class="weui_cell_ft"><a href="#"><i class="iconfont"></i></a></div>
+	        <div class="weui_cell_bd weui_cell_primary">
+	            <p>全部事项</p>
+	        </div>
+	        <div class="weui_cell_ft">
+	        	<a href="#" class="weui_cell_ft_search" title="搜索"><i class="iconfont "></i></a>
+	        </div>
+	    </div>
+		<div class="menu_cell">
+			
+			<ul>
+				<li><a href="#" class="menu_item_on">全部</a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="00-公共服务">00-公共服务</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="02-国际合作与交流处">02-国际合作与交流处</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="06-团委">06-团委</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="07-教务处">07-教务处</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="10-网络信息中心">10-网络信息中心</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="011-宣传部">011-宣传部</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="13-档案馆（校史馆）">13-档案馆（校史馆）</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="14-保卫处">14-保卫处</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="15-学工部">15-学工部</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="21-体育部">21-体育部</span></a></li>
+				
+				<li><i class="line"></i><a href="#"><span class="widget-elli" title="22-大气与环境实验教学中心">22-大气与环境实验教学中心</span></a></li>
+				
+			</ul>
+	    </div>
+	</div>
+	
+	<div class="bd">
+		
+		
+		
+		
+		<a name="MDAt5YWs5YWx5pyN5Yqh"></a>
+		<div class="weui_panel none_before none_after">
+			<div class="weui_cells_title weui_cells_title2 cyan"><b>00-公共服务</b></div>
+			<div class="weui_cells list_cells none_before none_after">
+	    		
+	    		<div class="weui_cell">
+		            <div class="weui_cell_bd weui_cell_primary">
+		                <h3><i class="iconfont"></i>
+		                	<a target="_blank" href="./查看出校二维码 - 查看出校二维码.html" class="widget-elli" title="查看出校二维码">
+								查看出校二维码
+							</a>
+		                </h3>
+		            </div>
+		        </div>
+		        
+	    		<div class="weui_cell">
+		            <div class="weui_cell_bd weui_cell_primary">
+		                <h3><i class="iconfont"></i>
+		                	<a target="_blank" href="./查看进校二维码 - 查看销假二维码.html" class="widget-elli" title="查看销假二维码">
+								查看销假二维码
+							</a>
+		                </h3>
+		            </div>
+		        </div>
+		        
+	    		<div class="weui_cell">
+		            <div class="weui_cell_bd weui_cell_primary">
+		                <h3><i class="iconfont"></i>
+		                	<a target="_blank" href="./学生请假申请.html" class="widget-elli" title="学生请假申请">
+								学生请假申请
+							</a>
+		                </h3>
+		            </div>
+		        </div>
+		        
+	        </div>
+	    </div>
+	
+	
+</body></html>
